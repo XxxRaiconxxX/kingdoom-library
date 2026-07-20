@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Biblioteca y guía de ingreso al universo de Kingdoom: historia, reinos, razas, reglas y creación de personajes."
+    />
+    <meta name="theme-color" content="#0b0c0c" />
+    <meta property="og:title" content="Archivum Kingdoom" />
+    <meta
+      property="og:description"
+      content="El códice de consulta para nuevos viajeros de Aethelgardia."
+    />
+    <title>Archivum Kingdoom | Biblioteca de Aethelgardia</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <div class="reading-progress" aria-hidden="true">
+      <span id="reading-progress-bar"></span>
+    </div>
+
+    <header class="mobile-header">
+      <a class="mobile-brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-sigil" aria-hidden="true">K</span>
+        <span>Archivum</span>
+      </a>
+      <div class="mobile-actions">
+        <button class="icon-button search-trigger" type="button" aria-label="Buscar en el códice">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+        </button>
+        <button
+          class="icon-button"
+          id="menu-toggle"
+          type="button"
+          aria-label="Abrir índice"
+          aria-controls="codex-sidebar"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <aside class="codex-sidebar" id="codex-sidebar" aria-label="Índice del Archivum">
+      <div class="sidebar-brand">
+        <a class="brand-lockup" href="#inicio" aria-label="Archivum Kingdoom, ir al inicio">
+          <span class="brand-sigil brand-sigil--large" aria-hidden="true">K</span>
+          <span>
+            <strong>Archivum</strong>
+            <small>Kingdoom</small>
+          </span>
+        </a>
+        <p>Biblioteca y guía del viajero</p>
+      </div>
+
+      <button class="sidebar-search search-trigger" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <span>Buscar en el códice</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+
+      <nav class="codex-nav" aria-label="Capítulos principales">
+        <p class="nav-eyebrow">Umbral</p>
+        <a class="nav-link is-active" href="#inicio">
+          <span>00</span>
+          Portada
+        </a>
+        <a class="nav-link" href="#ruta">
+          <span>01</span>
+          Ruta del viajero
+        </a>
+
+        <p class="nav-eyebrow">Biblioteca</p>
+        <a class="nav-link" href="#historia">
+          <span>02</span>
+          Historia
+        </a>
+        <a class="nav-link" href="#reinos">
+          <span>03</span>
+          Reinos y demografía
+        </a>
+        <a class="nav-link" href="#geopolitica">
+          <span>04</span>
+          Geopolítica
+        </a>
+        <a class="nav-link" href="#razas">
+          <span>05</span>
+          Catálogo de razas
+        </a>
+
+        <p class="nav-eyebrow">Ingreso al rol</p>
+        <a class="nav-link" href="#reglas">
+          <span>06</span>
+          Normas de creación
+        </a>
+        <a class="nav-link" href="#app-fichas">
+          <span>07</span>
+          Instalar Kingdoom Fichas
+        </a>
+        <a class="nav-link" href="#ficha">
+          <span>08</span>
+          Ficha de personaje
+        </a>
+      </nav>
+
+      <div class="sidebar-resume" id="resume-card" hidden>
+        <span>Última lectura</span>
+        <a id="resume-link" href="#inicio">Continuar</a>
+      </div>
+
+      <footer class="sidebar-footer">
+        <span>Edición del Archivo</span>
+        <strong>20 · VII · 2026</strong>
+      </footer>
+    </aside>
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Cerrar índice"></button>
+
+    <main id="main-content">
+      <section class="hero codex-section" id="inicio" data-section data-section-title="Portada">
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="section-kicker"><span></span> Gran Biblioteca de Argentis</p>
+          <h1>
+            <span>Archivum</span>
+            Kingdoom
+          </h1>
+          <p class="hero-lead">
+            Historia, pueblos y leyes de Aethelgardia reunidos para quien cruza por primera vez
+            las puertas del Reino.
+          </p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="#ruta">Comenzar el viaje</a>
+            <button class="button button--ghost search-trigger" type="button">Consultar el archivo</button>
+            <a class="button button--text" href="#app-fichas">Obtener app de fichas ↓</a>
+          </div>
+          <blockquote class="hero-quote">
+            “El Aether vibra ante tu presencia, viajero.”
+          </blockquote>
+        </div>
+
+        <div class="hero-seal" aria-hidden="true">
+          <div class="seal-orbit seal-orbit--outer">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="seal-orbit seal-orbit--inner"></div>
+          <div class="seal-core">
+            <span>Æ</span>
+            <small>AETHER</small>
+          </div>
+          <p>LIBERTAS · ORDO · AETHER</p>
+        </div>
+
+        <dl class="hero-ledger" aria-label="Datos esenciales de creación">
+          <div>
+            <dt>Personajes activos</dt>
+            <dd>02</dd>
+          </div>
+          <div>
+            <dt>Puntos de estadísticas</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>Puntos de magia</dt>
+            <dd>05</dd>
+          </div>
+          <div>
+            <dt>Caminos morales</dt>
+            <dd>02</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="codex-section route-section" id="ruta" data-section data-section-title="Ruta del viajero">
+        <header class="section-heading">
+          <p class="section-kicker"><span></span> Orientación inicial</p>
+          <h2>Tu ruta hacia Aethelgardia</h2>
+          <p>
+            No necesitas leer todo de una vez. Sigue estos cinco pasos y tendrás lo necesario para
+            crear un personaje coherente con el mundo.
+          </p>
+        </header>
+
+        <ol class="journey-path">
+          <li data-search-entry data-search-title="Conocer el origen" id="paso-origen">
+            <a href="#historia">
+              <span class="journey-number">I</span>
+              <div>
+                <small>Primera lectura</small>
+                <h3>Conoce el origen</h3>
+                <p>Descubre a Aeternus, los Custodes, el Aether y el inicio de la Aera Mortalium.</p>
+              </div>
+              <span class="journey-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li data-search-entry data-search-title="Elige una estirpe" id="paso-raza">
+            <a href="#razas">
+              <span class="journey-number">II</span>
+              <div>
+                <small>Identidad</small>
+                <h3>Elige una raza oficial</h3>
+                <p>Consulta las estirpes admitidas. Los híbridos no están permitidos.</p>
+              </div>
+              <span class="journey-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li data-search-entry data-search-title="Elige un reino" id="paso-reino">
+            <a href="#reinos">
+              <span class="journey-number">III</span>
+              <div>
+                <small>Procedencia</small>
+                <h3>Define tu reino</h3>
+                <p>Puedes nacer en un territorio y vivir en otro si tu historia lo justifica.</p>
+              </div>
+              <span class="journey-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li data-search-entry data-search-title="Distribuye estadísticas y magia" id="paso-puntos">
+            <a href="#reglas">
+              <span class="journey-number">IV</span>
+              <div>
+                <small>Sistema</small>
+                <h3>Distribuye tus puntos</h3>
+                <p>Reparte 12 puntos de estadísticas y 5 puntos de magia del Grimorio.</p>
+              </div>
+              <span class="journey-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li data-search-entry data-search-title="Completa tu ficha" id="paso-ficha">
+            <a href="#ficha">
+              <span class="journey-number">V</span>
+              <div>
+                <small>Ingreso</small>
+                <h3>Completa tu ficha</h3>
+                <p>Copia la plantilla, escribe una historia coherente y entrégala al staff.</p>
+              </div>
+              <span class="journey-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="codex-section history-section" id="historia" data-section data-section-title="Historia">
+        <header class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker"><span></span> Estante de los orígenes</p>
+            <h2>Historia de Aethelgardia</h2>
+          </div>
+          <p>
+            Dos volúmenes conservan el tránsito desde el vacío consciente hasta el presente de la
+            Fragmentación. Abre cada capítulo para leer el manuscrito.
+          </p>
+        </header>
+
+        <article class="codex-volume" id="volumen-primordialis" data-search-entry data-search-title="Codex Primordialis: El Despertar de Aethelvardi">
+          <header class="volume-cover volume-cover--void">
+            <div class="volume-index">Volumen I</div>
+            <div>
+              <p>Codex Primordialis</p>
+              <h3>El Despertar de Aethelvardi</h3>
+              <span>De la Vacuidad al Aether</span>
+            </div>
+            <small>Recopilado por los Cronistas del Templo de la Sabiduría de Sophia</small>
+          </header>
+
+          <div class="chapter-list">
+            <details class="manuscript-chapter" id="eon-abyssus" open data-search-entry data-search-title="El Eón del Abyssus">
+              <summary>
+                <span>I</span>
+                <div>
+                  <small>El Vacío Consciente</small>
+                  <h4>El Eón del Abyssus</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Antes de que existiera el arriba o el abajo, antes de que el fuego quemara o el
+                  agua fluyera, solo existía el Abyssus. No era una oscuridad malvada, sino un lienzo
+                  infinito de potencial puro y silencioso. En el centro exacto de esta nada, donde el
+                  tiempo aún no se atrevía a correr, habitaba la voluntad única: Aeternus, el Arcaico.
+                </p>
+                <p>
+                  Las escrituras antiguas describen a Aeternus no como una figura de carne, sino como
+                  una mente de luz infinita cuya benevolencia era tan vasta que el vacío mismo comenzó
+                  a vibrar. El Dios Primigenio comprendió que la perfección del silencio era una forma
+                  de soledad, y de ese pensamiento nació el deseo de la Alteridad: la creación de algo
+                  más allá de sí mismo.
+                </p>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="sacrificium" data-search-entry data-search-title="El Sacrificium Primordial y el nacimiento del Aether">
+              <summary>
+                <span>II</span>
+                <div>
+                  <small>Corpus y Anima Mundi</small>
+                  <h4>El Sacrificium Primordial</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Para que el mundo existiera, Aeternus comprendió que el vacío debía ser llenado con
+                  su propia sustancia. En un acto de desprendimiento absoluto conocido como el
+                  Sacrificium Primordial, Aeternus fragmentó su corona de luz.
+                </p>
+                <p>De esta fragmentación divina nacieron las dos fuerzas que sostienen la realidad:</p>
+                <dl class="lore-definitions">
+                  <div>
+                    <dt>La Materia <em>Corpus</em></dt>
+                    <dd>
+                      Los restos densos de su esencia que se convirtieron en el hierro de las montañas
+                      de Ironshold y el polvo de las estrellas.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>El Aether <em>Anima Mundi</em></dt>
+                    <dd>
+                      El aliento vital, una energía invisible y vibrante que impregna cada átomo. Es la
+                      sangre del universo y la fuente de lo que hoy llamamos magia.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="custodes" data-search-entry data-search-title="La Emanación de los Custodes">
+              <summary>
+                <span>III</span>
+                <div>
+                  <small>Los cinco rostros de la voluntad</small>
+                  <h4>La Emanación de los Custodes</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Aeternus, al ver que la mezcla de Materia y Aether era un caos indomable, emanó de
+                  su propio ser a cinco entidades menores pero poderosas. Cada Custodio recibió una
+                  fracción del poder creador para actuar como arquitecto de la existencia.
+                </p>
+                <div class="custodes-grid">
+                  <article>
+                    <span>ORDO</span>
+                    <h5>Aethelgard, el Primogénito</h5>
+                    <small>Custos Ordinis</small>
+                    <p>
+                      Trazó las líneas del destino y las leyes de la lógica. Representa la justicia
+                      inquebrantable que más tarde definiría al reino que lleva su nombre.
+                    </p>
+                  </article>
+                  <article>
+                    <span>SOPHIA</span>
+                    <h5>Sophia, la Tejedora</h5>
+                    <small>Custos Intellectus</small>
+                    <p>
+                      Organizó el Aether salvaje en Líneas Ley. Madre del conocimiento, hizo posible
+                      comprender la realidad y moldear la energía.
+                    </p>
+                  </article>
+                  <article>
+                    <span>FERRUM</span>
+                    <h5>Kaldor, el Forjador</h5>
+                    <small>Custos Ferrum</small>
+                    <p>
+                      Golpeó el yunque del vacío con un martillo estelar. De sus golpes surgieron los
+                      continentes, las cuevas y el fuego interno de la tierra.
+                    </p>
+                  </article>
+                  <article>
+                    <span>VITA</span>
+                    <h5>Gaya, la Nutricia</h5>
+                    <small>Custos Vitalis</small>
+                    <p>
+                      Sus lágrimas formaron los océanos y su aliento hizo germinar los bosques. Encarna
+                      la vida, el crecimiento y la belleza de lo efímero.
+                    </p>
+                  </article>
+                  <article>
+                    <span>NOX</span>
+                    <h5>Malakor, el Centinela</h5>
+                    <small>Custos Nox</small>
+                    <p>
+                      Recibió la tarea de ser el final. Dios del sueño, la muerte y los secretos, su
+                      neutralidad sostiene el equilibrio del mundo.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="edicto-libertas" data-search-entry data-search-title="El Edicto de la Libertas y el Gran Sueño">
+              <summary>
+                <span>IV</span>
+                <div>
+                  <small>La última ley de Aeternus</small>
+                  <h4>El Edicto de la Libertas</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Una vez que los Seis Reinos geográficos estuvieron en su lugar y el equilibrio entre
+                  los Custodes fue alcanzado, Aeternus pronunció su única y última ley, grabada en el
+                  tejido mismo del Aether:
+                </p>
+                <blockquote class="manuscript-quote">
+                  <strong>Vobis do Libertas. Non rego, non judico. Estote domini fati vestri.</strong>
+                  <span>
+                    A vosotros os doy la Libertad. No reino, no juzgo. Sed los dueños de vuestro propio
+                    destino.
+                  </span>
+                </blockquote>
+                <p>
+                  Con estas palabras, el Dios Primigenio se retiró al Sempiternum. No murió: se
+                  convirtió en observador silencioso. Su benevolencia reside en su ausencia, pues
+                  permite heroísmo real, elección verdadera y tragedias auténticas.
+                </p>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="transicion-mortalium" data-search-entry data-search-title="La Transición: el fin de la Era Divina">
+              <summary>
+                <span>V</span>
+                <div>
+                  <small>El fin de la Era Divina</small>
+                  <h4>La Transición</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  El mundo estaba listo. Los Custodes, ahora solos pero libres, miraron hacia la tierra
+                  virgen. En sus mentes comenzaron a formarse los deseos de ver rostros que les
+                  recordaran a su creador. Las primeras razas comenzaron a agitarse en el barro, en los
+                  árboles y en los cristales de maná, dando inicio a la Aera Mortalium.
+                </p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="codex-volume" id="volumen-mortalium" data-search-entry data-search-title="Liber Secundus: Aera Mortalium">
+          <header class="volume-cover volume-cover--mortal">
+            <div class="volume-index">Volumen II</div>
+            <div>
+              <p>Liber Secundus</p>
+              <h3>Aera Mortalium</h3>
+              <span>Crónica de las Estirpes, la Sangre de Aether y el Albedrío de las Sombras</span>
+            </div>
+            <small>Manuscrito conservado en la Gran Biblioteca de Argentis</small>
+          </header>
+
+          <div class="chapter-list">
+            <details class="manuscript-chapter" id="amanecer-conciencia" open data-search-entry data-search-title="El Amanecer de la Conciencia">
+              <summary>
+                <span>I</span>
+                <div>
+                  <small>Inspiratio Divina</small>
+                  <h4>El Amanecer de la Conciencia</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Tras la retirada de Aeternus al Sempiternum, el mundo de Aethelgardia quedó sumido en
+                  una paz estática, una perfección sin testigos. Los Custodes caminaron sobre las
+                  tierras vírgenes y sintieron un vacío que ni el oro de las montañas ni el azul de los
+                  mares podía llenar: el vacío de la compañía.
+                </p>
+                <p>
+                  En un concilio que duró mil años solares, decidieron fragmentar el Aether puro y
+                  depositarlo en vasijas de carne, hueso, corteza y escama. No buscaban siervos, sino
+                  espejos de su propia divinidad. Entonces el primer pulmón mortal se llenó de aire y el
+                  primer corazón latió con la chispa del creador.
+                </p>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="estirpes-primordiales" data-search-entry data-search-title="Las Estirpes Primordiales">
+              <summary>
+                <span>II</span>
+                <div>
+                  <small>Los espejos de los dioses</small>
+                  <h4>Las Estirpes Primordiales</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>Para que el mundo fuera diverso, cada Custodio infundió virtudes y miedos en una estirpe distinta.</p>
+                <div class="lineage-list">
+                  <article>
+                    <span>Aethelgard</span>
+                    <h5>Los Hijos del Sol y el Acero</h5>
+                    <small>Humanos y Altos Linajes</small>
+                    <p>
+                      Recibieron el don de la ambición y la estructura. Arquitectos de ciudades
+                      amuralladas y leyes complejas, pueden iluminar una era o incendiar continentes.
+                    </p>
+                  </article>
+                  <article>
+                    <span>Sophia</span>
+                    <h5>Los Tejedores de Estrellas</h5>
+                    <small>Elfos y Seres Etéreos</small>
+                    <p>
+                      Sus sentidos están sintonizados con las frecuencias del Aether. Habitan las
+                      torres de Arcania y su arrogancia puede ser tan vasta como su conocimiento.
+                    </p>
+                  </article>
+                  <article>
+                    <span>Gaya</span>
+                    <h5>La Legión de la Naturaleza</h5>
+                    <small>Razas Bestiales</small>
+                    <p>
+                      Seres de rasgos animales como Nekos, Kitsunes, Dracónidos y Lycans. Guardianes
+                      de los límites del mundo conocido y de su vínculo espiritual con la tierra.
+                    </p>
+                  </article>
+                  <article>
+                    <span>Kaldor</span>
+                    <h5>Los Maestros del Yunque</h5>
+                    <small>Enanos, Golems y Forjados</small>
+                    <p>
+                      No nacieron en cunas, sino en fraguas. Sus corazones laten como martillos y son
+                      capaces de domar la tecnología antigua.
+                    </p>
+                  </article>
+                  <article>
+                    <span>Malakor</span>
+                    <h5>Los Caminantes del Umbral</h5>
+                    <small>Sombríos, Tieflings y Renegados</small>
+                    <p>
+                      Afines a la noche y al descanso eterno. No son malvados por naturaleza, pero
+                      recuerdan al mundo que toda existencia tiene un final.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="aether-sangre" data-search-entry data-search-title="La Anatomía del Poder: el Aether en la sangre">
+              <summary>
+                <span>III</span>
+                <div>
+                  <small>El Aether en la sangre</small>
+                  <h4>La Anatomía del Poder</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  En Aethelgardia, la magia no es un estudio externo: es una herencia biológica. Cada
+                  habitante posee un Núcleo de Aether en su interior.
+                </p>
+                <ul class="lore-points">
+                  <li>Quienes lo cultivan con disciplina se convierten en Magos o Sabios.</li>
+                  <li>Quienes lo canalizan mediante la fuerza física se convierten en Guerreros Legendarios.</li>
+                  <li>
+                    El odio o la codicia desenfrenada oscurecen el Aether y lo convierten en Miasma,
+                    una energía que deforma alma y cuerpo.
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="camino-auxilium" data-search-entry data-search-title="El Gran Dilema: Auxilium y Malum">
+              <summary>
+                <span>IV</span>
+                <div>
+                  <small>Libertad y alineamiento</small>
+                  <h4>El Gran Dilema</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Al otorgar la Libertas, el Dios Primigenio permitió a sus hijos elegir su alineamiento
+                  moral. En Kingdoom no hay destinos escritos en piedra.
+                </p>
+                <div class="alignment-grid">
+                  <article>
+                    <small>La Luz del Orden</small>
+                    <h5>Camino del Auxilium</h5>
+                    <p>
+                      Protectores de la vida, buscadores de la verdad y unificadores de los Seis Reinos.
+                      Su fuerza proviene de la armonía.
+                    </p>
+                  </article>
+                  <article>
+                    <small>La Sombra de la Voluntad</small>
+                    <h5>Camino del Malum</h5>
+                    <p>
+                      Quienes convierten su ambición en ley, ya sea por orden cruel o venganza
+                      justificada. Su fuerza proviene del dominio y el miedo.
+                    </p>
+                  </article>
+                </div>
+              </div>
+            </details>
+
+            <details class="manuscript-chapter" id="era-fractura" data-search-entry data-search-title="La Era de la Fractura, el presente">
+              <summary>
+                <span>V</span>
+                <div>
+                  <small>El presente</small>
+                  <h4>La Era de la Fractura</h4>
+                </div>
+                <i aria-hidden="true"></i>
+              </summary>
+              <div class="chapter-body">
+                <p>
+                  Hoy, las trompetas de guerra resuenan en las fronteras de Ironshold y las sombras se
+                  alargan en los valles de Oakhaven. Los Custodes guardan silencio desde sus tronos
+                  celestiales mientras sus hijos se preparan para el conflicto final.
+                </p>
+                <blockquote class="manuscript-quote">
+                  <strong>¿Serás el bálsamo que sane las heridas de Aethelgardia?</strong>
+                  <span>¿O la espada que termine de fragmentarla?</span>
+                </blockquote>
+              </div>
+            </details>
+          </div>
+        </article>
+      </section>
+
+      <section class="codex-section realms-section" id="reinos" data-section data-section-title="Reinos y demografía">
+        <header class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker"><span></span> Atlas demográfico</p>
+            <h2>Territorios y pueblos</h2>
+          </div>
+          <p>
+            Cuatro potencias continentales y las naciones del agua concentran las comunidades
+            descritas en este registro.
+          </p>
+        </header>
+
+        <div class="realm-grid">
+          <article class="realm-card realm-card--kaelum" id="reino-kaelum" data-search-entry data-search-title="Imperio de Kaelum-Gard">
+            <header>
+              <span class="realm-mark">KG</span>
+              <div>
+                <small>I · El Puño del Orden</small>
+                <h3>Imperio de Kaelum-Gard</h3>
+              </div>
+            </header>
+            <dl>
+              <div>
+                <dt>Casta de mando</dt>
+                <dd>Humanos, Ángeles de las Virtudes, Serafines.</dd>
+              </div>
+              <div>
+                <dt>Aristocracia y estrategia</dt>
+                <dd>Vampiros Sangre Pura, Altos Elfos, Elfos de Sangre.</dd>
+              </div>
+              <div>
+                <dt>Fuerza bruta</dt>
+                <dd>Orcos de Hierro, Minotauros, Cíclopes, Gigantes de Fuego.</dd>
+              </div>
+              <div>
+                <dt>Infraestructura</dt>
+                <dd>Golems de Piedra, Autómatas de Vapor, Enanos de las Montañas.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="realm-card realm-card--oakhaven" id="reino-oakhaven" data-search-entry data-search-title="Protectorado de Oakhaven">
+            <header>
+              <span class="realm-mark">OH</span>
+              <div>
+                <small>II · El Latido Alquímico</small>
+                <h3>Protectorado de Oakhaven</h3>
+              </div>
+            </header>
+            <dl>
+              <div>
+                <dt>Guardianes ancestrales</dt>
+                <dd>Elfos Silvanos, Elfos de la Noche, Dríadas, Ents, Kodamas.</dd>
+              </div>
+              <div>
+                <dt>Cazadores y protectores</dt>
+                <dd>Lycans, Hombres Tigre y León, Ursine.</dd>
+              </div>
+              <div>
+                <dt>Alquimia viviente</dt>
+                <dd>Alraune, Myconids, Mandrágoras, Ninfas.</dd>
+              </div>
+              <div>
+                <dt>Mensajeros del viento</dt>
+                <dd>Silfos, Hadas, Pixies, Tengus.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="realm-card realm-card--arcania" id="reino-arcania" data-search-entry data-search-title="Nexo de Arcania">
+            <header>
+              <span class="realm-mark">AR</span>
+              <div>
+                <small>III · El Prisma del Saber</small>
+                <h3>Nexo de Arcania</h3>
+              </div>
+            </header>
+            <dl>
+              <div>
+                <dt>Entidades de energía</dt>
+                <dd>Ethereals, Cuerpos de Éter, Sombras Vivientes.</dd>
+              </div>
+              <div>
+                <dt>Maestros del cristal</dt>
+                <dd>Golems de Cristal, Enanos Oscuros, Svirfneblin.</dd>
+              </div>
+              <div>
+                <dt>Inmortales e infernales</dt>
+                <dd>Liches, Aasimar, Tieflings, Nephilim, Súcubos e Íncubos.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="realm-card realm-card--paramos" id="reino-paramos" data-search-entry data-search-title="Unión de los Páramos">
+            <header>
+              <span class="realm-mark">UP</span>
+              <div>
+                <small>IV · La Senda del Pragmatismo</small>
+                <h3>Unión de los Páramos</h3>
+              </div>
+            </header>
+            <dl>
+              <div>
+                <dt>Ingeniería y comercio</dt>
+                <dd>Goblins Ingenieros, Hobgoblins, Tanukis, Kitsunes, Skaven.</dd>
+              </div>
+              <div>
+                <dt>Logística de ruta</dt>
+                <dd>Centauros, Sleipnir Humanoides, Hombres Jabalí y Topo.</dd>
+              </div>
+              <div>
+                <dt>Supervivencia extrema</dt>
+                <dd>Trolls de Hielo y Selva, Gigantes de Escarcha, Gnolls, Kobolds.</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="realm-card realm-card--water realm-card--wide" id="reino-agua" data-search-entry data-search-title="Naciones del Agua y Exiliados">
+            <header>
+              <span class="realm-mark">NA</span>
+              <div>
+                <small>V · Mareas y destierro</small>
+                <h3>Naciones del Agua y Exiliados</h3>
+              </div>
+            </header>
+            <dl>
+              <div>
+                <dt>Reinos acuáticos</dt>
+                <dd>Sirenas, Tritones, Nagas, Cecaelias, Hombres Tiburón y Pulpo.</dd>
+              </div>
+              <div>
+                <dt>Los ominosos</dt>
+                <dd>Dullahan, Ghouls, Gorgonas, Banshees.</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <p class="archive-blessing">Que el Aether preserve el equilibrio entre las razas.</p>
+      </section>
+
+      <section class="codex-section geopolitics-section" id="geopolitica" data-section data-section-title="Geopolítica">
+        <header class="section-heading">
+          <p class="section-kicker"><span></span> Relaciones diplomáticas</p>
+          <h2>Una paz sostenida por necesidad</h2>
+          <p>
+            Los cuatro reinos continentales dependen unos de otros para sobrevivir, pero la
+            desconfianza entre sus intereses es absoluta.
+          </p>
+        </header>
+
+        <div class="world-state" data-search-entry data-search-title="Estado del mundo: Paz Tensa">
+          <div>
+            <span>Estado del mundo</span>
+            <strong>Paz tensa</strong>
+          </div>
+          <p>La vigilancia es el precio cotidiano de la supervivencia.</p>
+        </div>
+
+        <div class="tension-grid">
+          <article data-search-entry data-search-title="Kaelum-Gard contra Oakhaven">
+            <span class="tension-code">FRONTERA · 01</span>
+            <h3>Kaelum-Gard <i>vs.</i> Oakhaven</h3>
+            <p>
+              El Imperio quiere anexar los bosques para asegurar la resina. Oakhaven amenaza con la
+              destrucción total de su ecosistema si es invadido.
+            </p>
+          </article>
+          <article data-search-entry data-search-title="El monopolio de Arcania">
+            <span class="tension-code">AETHER · 02</span>
+            <h3>El monopolio de Arcania</h3>
+            <p>
+              Todos odian depender del refinamiento arcano, pero nadie posee la tecnología para
+              replicarlo sin provocar una explosión de escala nuclear mágica.
+            </p>
+          </article>
+          <article data-search-entry data-search-title="El peaje de los Páramos">
+            <span class="tension-code">RUTAS · 03</span>
+            <h3>El peaje de los Páramos</h3>
+            <p>
+              La Unión cobra por transitar sus rutas. Kaelum-Gard lo considera extorsión, aunque no
+              puede patrullar por sí mismo todo el continente.
+            </p>
+          </article>
+        </div>
+
+        <div class="threat-ledger">
+          <header>
+            <span>Amenazas comunes</span>
+            <small>Archivo de contingencias</small>
+          </header>
+          <article data-search-entry data-search-title="La Fauna Cristalizada">
+            <span>01</span>
+            <div>
+              <h3>La Fauna Cristalizada</h3>
+              <p>Monstruos mutados por la Fractura atacan constantemente las líneas de suministro.</p>
+            </div>
+          </article>
+          <article data-search-entry data-search-title="Espionaje industrial">
+            <span>02</span>
+            <div>
+              <h3>Espionaje industrial</h3>
+              <p>Agentes de los cuatro reinos se infiltran en Arcania para robar fórmulas de refinamiento.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="codex-section races-section" id="razas" data-section data-section-title="Catálogo de razas">
+        <header class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker"><span></span> Registro biológico y mágico</p>
+            <h2>Catálogo oficial de razas</h2>
+          </div>
+          <p>
+            Consulta las variantes admitidas antes de crear tu ficha. La presencia de dos nombres en
+            una entrada no autoriza personajes híbridos.
+          </p>
+        </header>
+
+        <div class="race-toolbar">
+          <label for="race-filter">
+            <span>Filtrar catálogo</span>
+            <input id="race-filter" type="search" placeholder="Ej. elfo, vampiro, kitsune…" autocomplete="off" />
+          </label>
+          <p id="race-count" aria-live="polite"></p>
+        </div>
+
+        <div class="race-catalog" id="race-catalog">
+          <details class="race-family" open data-search-entry data-search-title="Humanos y subrazas de elfos">
+            <summary><span>I</span><h3>Humanos y Subrazas de Elfos</h3><small>6 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Humanos</span><span data-race>Elfos de Sangre</span><span data-race>Elfos de la Noche</span>
+              <span data-race>Elfos Silvanos</span><span data-race>Altos Elfos</span><span data-race>Semi-Elfos</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Enanos y seres pequeños">
+            <summary><span>II</span><h3>Enanos y Seres Pequeños</h3><small>9 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Enanos de las Montañas</span><span data-race>Enanos Oscuros</span>
+              <span data-race>Gnomos de las Profundidades (Svirfneblin)</span><span data-race>Gnomos de Jardín</span>
+              <span data-race>Goblins Ingenieros</span><span data-race>Goblins de las Cuevas</span>
+              <span data-race>Hobgoblins</span><span data-race>Trasgos</span><span data-race>Kobolds</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Orcos, trolls y bestiales">
+            <summary><span>III</span><h3>Orcos, Trolls y Bestiales</h3><small>7 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Orcos de las Estepas</span><span data-race>Orcos de Hierro</span><span data-race>Semi-Orcos</span>
+              <span data-race>Trolls de Selva</span><span data-race>Trolls de Hielo</span>
+              <span data-race>Gnolls (Hombres Hiena)</span><span data-race>Onis (Ogros Japoneses)</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Cambiaformas y teriantropos">
+            <summary><span>IV</span><h3>Cambiaformas y Teriantropos</h3><small>12 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Hombres Lobo (Lycans / Fenrir)</span><span data-race>Hombres Tigre (Weretigers)</span>
+              <span data-race>Hombres León (Leonin)</span><span data-race>Hombres Gato (Nekomata)</span>
+              <span data-race>Hombres Conejo (Viera)</span><span data-race>Hombres Zorro (Kitsune)</span>
+              <span data-race>Hombres Oso (Ursine)</span><span data-race>Hombres Jabalí</span>
+              <span data-race>Hombres Rata (Skaven)</span><span data-race>Hombres Topo</span>
+              <span data-race>Hombres Murciélago</span><span data-race>Tanuki (Hombres Mapache)</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Seres acuáticos y reptilianos">
+            <summary><span>V</span><h3>Seres Acuáticos y Reptilianos</h3><small>10 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Nagas (Gente Serpiente)</span><span data-race>Sirenas y Tritones</span>
+              <span data-race>Hombres Pez (Kappa)</span><span data-race>Hombres Tiburón</span>
+              <span data-race>Hombres Pulpo (Cecaelia)</span><span data-race>Hombres Medusa</span>
+              <span data-race>Dracónidos (Dragonborn)</span><span data-race>Saurios (Hombres Lagarto)</span>
+              <span data-race>Hombres Cocodrilo</span><span data-race>Basiliscos Humanoides</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Celestiales, infernales y etéreos">
+            <summary><span>VI</span><h3>Celestiales, Infernales y Etéreos</h3><small>14 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Ángeles de las Virtudes</span><span data-race>Serafines</span><span data-race>Querubines</span>
+              <span data-race>Ángeles Caídos</span><span data-race>Aasimar</span><span data-race>Nephilim</span>
+              <span data-race>Demonios de Clase Alta</span><span data-race>Súcubos e Íncubos</span>
+              <span data-race>Diablillos (Imps)</span><span data-race>Tieflings</span><span data-race>Cambion</span>
+              <span data-race>Ethereals (Seres de Energía)</span><span data-race>Cuerpos de Éter</span>
+              <span data-race>Sombras Vivientes / Ominosos</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="No-muertos y espectros">
+            <summary><span>VII</span><h3>No-Muertos y Espectros</h3><small>8 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Vampiros Sangre Pura</span><span data-race>Dhampiros</span><span data-race>Liches</span>
+              <span data-race>Esqueletos Guerrero</span><span data-race>Ghouls</span>
+              <span data-race>Dullahan (Caballeros sin cabeza)</span><span data-race>Gritones (Banshees)</span>
+              <span data-race>Espectros</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Espíritus de la naturaleza y elementales">
+            <summary><span>VIII</span><h3>Espíritus de la Naturaleza y Elementales</h3><small>10 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Hadas (Fairies)</span><span data-race>Pixies / Duendes</span>
+              <span data-race>Ninfas de Agua / Undinas</span><span data-race>Dríadas / Silfos</span>
+              <span data-race>Espíritus del Bosque (Kodamas)</span><span data-race>Salamandras (Gente de Fuego)</span>
+              <span data-race>Mujeres de Nieve (Yuki-onna)</span><span data-race>Hombres Planta (Alraune)</span>
+              <span data-race>Myconids (Hombres Hongo)</span><span data-race>Ents / Mandrágoras Sapientes</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Gigantes, colosos y constructos">
+            <summary><span>IX</span><h3>Gigantes, Colosos y Constructos</h3><small>6 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Gigantes de Fuego / Escarcha</span><span data-race>Titanes</span><span data-race>Cíclopes</span>
+              <span data-race>Yeti</span><span data-race>Golems de Piedra / Cristal</span><span data-race>Autómatas de Vapor</span>
+            </div>
+          </details>
+
+          <details class="race-family" data-search-entry data-search-title="Híbridos nominales y quimeras">
+            <summary><span>X</span><h3>Híbridos y Quimeras</h3><small>10 registros</small><i></i></summary>
+            <div class="race-chips">
+              <span data-race>Centauros / Sátiros / Faunos</span><span data-race>Minotauros</span>
+              <span data-race>Arácnidos (Arachne)</span><span data-race>Hombres Escorpión</span>
+              <span data-race>Harpías / Arpías de las Cumbres</span><span data-race>Tengus / Garudas (Hombres Ave)</span>
+              <span data-race>Lamias / Gorgonas</span><span data-race>Mantícoras / Sphinx / Qilin / Sleipnir (Humanoides)</span>
+              <span data-race>Dragones Celestiales (Forma Humana)</span><span data-race>Wyverns Sapientes</span>
+            </div>
+          </details>
+        </div>
+
+        <div class="catalog-note">
+          <strong>Nota del registro</strong>
+          <p>
+            La lista incluye variaciones biológicas y mágicas. Algunas razas comparten territorio o
+            mantienen enemistades naturales según el trasfondo del mundo. La norma de creación no
+            permite combinar dos razas en un mismo personaje.
+          </p>
+        </div>
+      </section>
+
+      <section class="codex-section rules-section" id="reglas" data-section data-section-title="Normas de creación">
+        <header class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker"><span></span> Normas V1</p>
+            <h2>Antes de crear tu personaje</h2>
+          </div>
+          <p>
+            Estas reglas son vinculantes para las fichas iniciales. Abre cada pregunta para consultar
+            su respuesta completa.
+          </p>
+        </header>
+
+        <div class="rules-ledger">
+          <details open data-search-entry data-search-title="¿Cuántos personajes puedo tener?">
+            <summary><span>01</span><h3>¿Cuántos personajes puedo tener?</h3><i></i></summary>
+            <p>Máximo <strong>2 personajes activos</strong>.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo usar apariencia de personajes existentes?">
+            <summary><span>02</span><h3>¿Puedo usar apariencias existentes?</h3><i></i></summary>
+            <p>Sí, siempre que encajen con la lógica medieval. No se admiten elementos modernos o caricaturescos fuera de ambientación.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Qué edad puede tener mi personaje?">
+            <summary><span>03</span><h3>¿Qué edad puede tener?</h3><i></i></summary>
+            <p>La que quieras, si es coherente. Una edad elevada debe estar justificada por su historia y raza.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Qué género puede ser?">
+            <summary><span>04</span><h3>¿Qué género puede ser?</h3><i></i></summary>
+            <p>Hombre, mujer o indefinido.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo elegir cualquier raza?">
+            <summary><span>05</span><h3>¿Puedo elegir cualquier raza?</h3><i></i></summary>
+            <p>No. Solo pueden utilizarse razas incluidas en el catálogo oficial.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Cuántos poderes puedo tener?">
+            <summary><span>06</span><h3>¿Cuántos poderes puedo tener?</h3><i></i></summary>
+            <p>
+              Dispones de <strong>5 puntos de magia</strong>. Un punto equivale a un nivel: puedes elegir
+              una magia de nivel 5, cinco de nivel 1 o cualquier combinación válida. Todas deben
+              proceder del Grimorio de la web.
+            </p>
+          </details>
+          <details data-search-entry data-search-title="¿Las estadísticas influyen?">
+            <summary><span>07</span><h3>¿Las estadísticas influyen?</h3><i></i></summary>
+            <p>Funcionan como bonificación en combate; no cambian por sí solas las capacidades narrativas del personaje.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Cómo aumento estadísticas?">
+            <summary><span>08</span><h3>¿Cómo aumento estadísticas?</h3><i></i></summary>
+            <p>Mediante expediciones de la web, misiones y eventos.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo ser roleador literario?">
+            <summary><span>09</span><h3>¿Debo usar un sistema tipo D&amp;D?</h3><i></i></summary>
+            <p>No. Puedes ser <strong>Roleador Literario</strong> y jugar mediante narrativa sin dados.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Mi arma puede tener poderes?">
+            <summary><span>10</span><h3>¿Mi arma puede tener poderes?</h3><i></i></summary>
+            <p>No al inicio. Debe comenzar como un arma normal.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Qué pongo en estilo de combate?">
+            <summary><span>11</span><h3>¿Qué pongo en estilo de combate?</h3><i></i></summary>
+            <p>Describe cómo pelea: cuerpo a cuerpo, distancia, mixto, patadas, magia u otra disciplina coherente.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puede nacer en un reino y vivir en otro?">
+            <summary><span>12</span><h3>¿Puede nacer en un reino y vivir en otro?</h3><i></i></summary>
+            <p>Sí. Es totalmente válido si su historia explica ese tránsito.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo cambiar de profesión?">
+            <summary><span>13</span><h3>¿Puedo cambiar de profesión?</h3><i></i></summary>
+            <p>Sí, pero el cambio debe realizarse dentro del rol.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Qué son habilidades no mágicas?">
+            <summary><span>14</span><h3>¿Qué son habilidades no mágicas?</h3><i></i></summary>
+            <p>Talentos y conocimientos como esgrima, rastreo, cocina, alquimia u otros oficios.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puede haber híbridos?">
+            <summary><span>15</span><h3>¿Puede haber híbridos?</h3><i></i></summary>
+            <p>No están permitidos.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo usar poderes fuera del Grimorio?">
+            <summary><span>16</span><h3>¿Puedo usar poderes fuera del Grimorio?</h3><i></i></summary>
+            <p>No. Toda magia oficial debe elegirse en el Grimorio.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Puedo ser dueño de un reino?">
+            <summary><span>17</span><h3>¿Puedo ser dueño de un reino?</h3><i></i></summary>
+            <p>No.</p>
+          </details>
+          <details data-search-entry data-search-title="¿Cómo puedo ser noble?">
+            <summary><span>18</span><h3>¿Cómo puedo ser noble?</h3><i></i></summary>
+            <p>Debes hablar con un administrador y justificar el título dentro del lore.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="codex-section app-section" id="app-fichas" data-section data-section-title="Instalar Kingdoom Fichas">
+        <div class="app-showcase" data-search-entry data-search-title="Descargar e instalar Kingdoom Fichas para Android">
+          <div class="app-copy">
+            <p class="section-kicker"><span></span> Herramienta oficial</p>
+            <h2>Crea tu ficha desde la app</h2>
+            <p>
+              Kingdoom Fichas te guía durante la creación, valida los límites del sistema y prepara el
+              resultado para compartirlo en WhatsApp. El instalador se publica desde el repositorio
+              oficial del proyecto.
+            </p>
+
+            <div class="app-badges" aria-label="Información de la aplicación">
+              <span>Android APK</span>
+              <span>Versión 5.0.2</span>
+              <span>4,7 MB</span>
+            </div>
+
+            <div class="app-actions">
+              <a
+                class="button button--primary app-download"
+                href="https://github.com/XxxRaiconxxX/kingdoom-fichas/releases/download/latest/app-debug.apk"
+              >
+                Descargar APK
+              </a>
+              <a
+                class="button button--ghost"
+                href="https://github.com/XxxRaiconxxX/kingdoom-fichas/releases/tag/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver versión oficial ↗
+              </a>
+            </div>
+
+            <p class="app-safety">
+              Descarga siempre desde este enlace oficial. Android puede solicitar permiso para instalar
+              aplicaciones desde el navegador porque la app no se distribuye mediante Play Store.
+            </p>
+          </div>
+
+          <div class="app-device" aria-hidden="true">
+            <div class="device-frame">
+              <div class="device-speaker"></div>
+              <div class="device-screen">
+                <div class="device-status"><span>Kingdoom</span><i></i></div>
+                <div class="device-crest">K</div>
+                <small>Forja de identidades</small>
+                <h3>Nueva ficha</h3>
+                <div class="device-field"><span>Nombre</span><i></i></div>
+                <div class="device-field"><span>Raza</span><i></i></div>
+                <div class="device-meter"><span>Estadísticas</span><strong>8 / 12</strong></div>
+                <div class="device-meter"><span>Magia</span><strong>3 / 5</strong></div>
+                <div class="device-cta">Continuar</div>
+              </div>
+            </div>
+            <div class="device-orbit"></div>
+          </div>
+        </div>
+
+        <ol class="install-steps" aria-label="Pasos de instalación">
+          <li data-search-entry data-search-title="Paso 1: descargar Kingdoom Fichas">
+            <span>01</span>
+            <div><h3>Descarga</h3><p>Pulsa “Descargar APK” desde tu dispositivo Android.</p></div>
+          </li>
+          <li data-search-entry data-search-title="Paso 2: autorizar instalación APK">
+            <span>02</span>
+            <div><h3>Autoriza</h3><p>Si Android lo solicita, permite instalar desde el navegador utilizado.</p></div>
+          </li>
+          <li data-search-entry data-search-title="Paso 3: instalar Kingdoom Fichas">
+            <span>03</span>
+            <div><h3>Instala</h3><p>Abre el archivo descargado, confirma la instalación y entra a la app.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="codex-section sheet-section" id="ficha" data-section data-section-title="Ficha de personaje">
+        <header class="section-heading section-heading--split">
+          <div>
+            <p class="section-kicker"><span></span> Registro de ingreso</p>
+            <h2>Ficha de personaje</h2>
+          </div>
+          <p>
+            Usa esta plantilla como punto de partida. Completa cada campo con coherencia y solicita la
+            revisión del staff cuando esté lista.
+          </p>
+        </header>
+
+        <div class="sheet-layout">
+          <aside class="sheet-rules" aria-label="Resumen numérico">
+            <div>
+              <span>PV base</span>
+              <strong>100</strong>
+            </div>
+            <div>
+              <span>Estadísticas</span>
+              <strong>12 pts</strong>
+            </div>
+            <div>
+              <span>Magia</span>
+              <strong>5 pts</strong>
+            </div>
+            <p>
+              Distribuye los 12 puntos entre fuerza, agilidad, inteligencia, defensa y defensa mágica.
+            </p>
+          </aside>
+
+          <article class="character-sheet">
+            <header>
+              <div>
+                <small>Formulario oficial</small>
+                <h3>The Kingdoom</h3>
+              </div>
+              <button class="copy-button" id="copy-sheet" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                </svg>
+                <span>Copiar plantilla</span>
+              </button>
+            </header>
+            <pre id="character-template">╭═════°•&gt;☾&lt;•°═════╮
+       THE KINGDOOM
+╰═════°•&gt;☾&lt;•°═════╯
+
+Nombre completo / Apodo:
+Edad:
+Género:
+Estatura:
+Raza:
+
+Poderes oficiales:
+
+ESTADÍSTICAS — 12 puntos
+Fuerza:
+Agilidad:
+Inteligencia:
+Defensa:
+Defensa mágica:
+PV base: 100
+
+Arma principal:
+Estilo de combate:
+Reino donde nació:
+Clase social: Noble / Plebeyo / Burgués
+Título de nobleza, si corresponde:
+Profesión:
+Habilidades no mágicas:
+Personalidad:
+Historia:
+Extras:
+Debilidades:
+Inventario:
+Imagen / Descripción:</pre>
+            <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="main-footer">
+        <div class="footer-seal" aria-hidden="true">K</div>
+        <p>
+          <strong>Archivum Kingdoom</strong>
+          <span>Que la pluma prevenga lo que la espada no pueda detener.</span>
+        </p>
+        <a href="#inicio">Volver al umbral ↑</a>
+      </footer>
+    </main>
+
+    <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+      <div class="search-panel">
+        <header>
+          <div>
+            <span>Consulta del Archivista</span>
+            <h2 id="search-title">Buscar en el códice</h2>
+          </div>
+          <button class="icon-button" id="search-close" type="button" aria-label="Cerrar búsqueda">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+          </button>
+        </header>
+        <label class="search-field" for="codex-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input id="codex-search" type="search" aria-label="Buscar en el códice" placeholder="Busca Aether, Arcania, vampiro, magia…" autocomplete="off" />
+          <kbd>ESC</kbd>
+        </label>
+        <div class="search-results" id="search-results" aria-live="polite">
+          <p class="search-empty">Escribe una palabra para consultar los registros.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <noscript>
+      <div class="noscript-notice">Activa JavaScript para usar la búsqueda y copiar la ficha. Todo el códice sigue disponible para lectura.</div>
+    </noscript>
+  </body>
+</html>
