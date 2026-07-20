@@ -2394,6 +2394,44 @@ kbd {
   to { transform: rotate(360deg); }
 }
 
+@media (min-width: 921px) {
+  :root {
+    --sidebar-width: 229px;
+    --content-width: 944px;
+  }
+
+  html {
+    font-size: 80%;
+  }
+
+  body {
+    font-size: 13.6px;
+  }
+
+  .sidebar-search {
+    min-height: 37px;
+  }
+
+  .nav-link {
+    min-height: 34px;
+  }
+
+  .button,
+  .race-toolbar input {
+    min-height: 38px;
+  }
+
+  .copy-button,
+  .main-footer > a {
+    min-height: 37px;
+  }
+
+  .icon-button {
+    width: 37px;
+    height: 37px;
+  }
+}
+
 @media (max-width: 1180px) {
   .hero {
     grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.65fr);

@@ -59,6 +59,9 @@ assert.equal(/<script(?![^>]*\bsrc=)/i.test(html), false, 'Inline scripts would 
 assert.equal(/<style[\s>]/i.test(html), false, 'Inline styles would violate the Vercel CSP.');
 
 assert.ok(css.includes('@media (max-width: 920px)'), 'Tablet/mobile layout breakpoint is missing.');
+assert.ok(css.includes('@media (min-width: 921px)'), 'Desktop density breakpoint is missing.');
+assert.ok(css.includes('--sidebar-width: 229px'), 'Desktop sidebar density is missing.');
+assert.ok(css.includes('--content-width: 944px'), 'Desktop content density is missing.');
 assert.ok(css.includes('@media (prefers-reduced-motion: reduce)'), 'Reduced-motion support is missing.');
 assert.ok(css.includes('min-height: 46px'), 'Touch target baseline is missing.');
 
