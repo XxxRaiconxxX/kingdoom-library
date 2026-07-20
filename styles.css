@@ -2436,6 +2436,8 @@ kbd {
     --sidebar-width: 286px;
     --content-width: 100vw;
     --canvas-offset: clamp(1.5rem, 2vw, 2.5rem);
+    --desktop-reading-size: 1.12rem;
+    --desktop-support-size: 1rem;
   }
 
   html {
@@ -2443,7 +2445,7 @@ kbd {
   }
 
   body {
-    font-size: 13.6px;
+    font-size: 14.4px;
   }
 
   .codex-sidebar {
@@ -2456,6 +2458,52 @@ kbd {
     width: calc(100% - var(--canvas-offset));
     margin-right: 0;
     margin-left: var(--canvas-offset);
+  }
+
+  .section-heading > p,
+  .chapter-body > p,
+  .app-copy > p:not(.section-kicker, .app-safety) {
+    font-size: var(--desktop-reading-size);
+  }
+
+  .journey-path p,
+  .lore-definitions dd,
+  .custodes-grid p,
+  .lineage-list p,
+  .alignment-grid p,
+  .realm-card dd,
+  .tension-grid p,
+  .catalog-note p,
+  .rules-ledger details > p,
+  .install-steps p,
+  .sheet-rules span {
+    font-size: var(--desktop-support-size);
+  }
+
+  .journey-path h3,
+  .custodes-grid h5,
+  .lineage-list h5,
+  .alignment-grid h5,
+  .threat-ledger h3,
+  .race-family summary h3 {
+    font-size: 1.08rem;
+  }
+
+  .lore-definitions dt,
+  .rules-ledger h3,
+  .install-steps h3 {
+    font-size: 0.94rem;
+  }
+
+  .race-chips span {
+    font-size: 0.88rem;
+  }
+
+  .app-safety,
+  .sheet-rules > p,
+  .character-sheet pre,
+  .main-footer span {
+    font-size: 0.95rem;
   }
 
   .sidebar-search {

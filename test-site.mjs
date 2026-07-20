@@ -63,6 +63,8 @@ assert.ok(css.includes('@media (min-width: 921px)'), 'Desktop density breakpoint
 assert.ok(css.includes('--sidebar-width: 286px'), 'Readable desktop sidebar width is missing.');
 assert.ok(css.includes('--content-width: 100vw'), 'Fluid desktop canvas is missing.');
 assert.ok(css.includes('--canvas-offset: clamp(1.5rem, 2vw, 2.5rem)'), 'Balanced desktop canvas spacing is missing.');
+assert.ok(css.includes('--desktop-reading-size: 1.12rem'), 'Desktop reading scale is missing.');
+assert.ok(css.includes('--desktop-support-size: 1rem'), 'Desktop supporting text scale is missing.');
 assert.ok(css.includes('zoom: 1.25'), 'Desktop sidebar scale isolation is missing.');
 assert.ok(css.includes('scrollbar-color: var(--gold)'), 'Themed scrollbar color is missing.');
 assert.ok(css.includes('@media (prefers-reduced-motion: reduce)'), 'Reduced-motion support is missing.');
