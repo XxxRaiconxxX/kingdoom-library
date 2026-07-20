@@ -34,6 +34,43 @@ html {
   scrollbar-gutter: stable;
 }
 
+html,
+.codex-sidebar {
+  scrollbar-color: var(--gold) #0c0d0c;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar,
+.codex-sidebar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track,
+.codex-sidebar::-webkit-scrollbar-track {
+  background: #0c0d0c;
+}
+
+html::-webkit-scrollbar-thumb,
+.codex-sidebar::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  border: 2px solid #0c0d0c;
+  border-radius: 999px;
+  background: linear-gradient(var(--gold-dark), var(--gold));
+}
+
+html::-webkit-scrollbar-thumb:hover,
+.codex-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-bright);
+}
+
+html::-webkit-scrollbar-button,
+.codex-sidebar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -2397,7 +2434,8 @@ kbd {
 @media (min-width: 921px) {
   :root {
     --sidebar-width: 286px;
-    --content-width: 944px;
+    --content-width: 100vw;
+    --canvas-offset: clamp(1.5rem, 2vw, 2.5rem);
   }
 
   html {
@@ -2411,6 +2449,13 @@ kbd {
   .codex-sidebar {
     width: 228.8px;
     zoom: 1.25;
+  }
+
+  .codex-section,
+  .main-footer {
+    width: calc(100% - var(--canvas-offset));
+    margin-right: 0;
+    margin-left: var(--canvas-offset);
   }
 
   .sidebar-search {
