@@ -2396,7 +2396,7 @@ kbd {
 
 @media (min-width: 921px) {
   :root {
-    --sidebar-width: 229px;
+    --sidebar-width: 286px;
     --content-width: 944px;
   }
 
@@ -2406,6 +2406,11 @@ kbd {
 
   body {
     font-size: 13.6px;
+  }
+
+  .codex-sidebar {
+    width: 228.8px;
+    zoom: 1.25;
   }
 
   .sidebar-search {

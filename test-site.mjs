@@ -60,8 +60,9 @@ assert.equal(/<style[\s>]/i.test(html), false, 'Inline styles would violate the 
 
 assert.ok(css.includes('@media (max-width: 920px)'), 'Tablet/mobile layout breakpoint is missing.');
 assert.ok(css.includes('@media (min-width: 921px)'), 'Desktop density breakpoint is missing.');
-assert.ok(css.includes('--sidebar-width: 229px'), 'Desktop sidebar density is missing.');
+assert.ok(css.includes('--sidebar-width: 286px'), 'Readable desktop sidebar width is missing.');
 assert.ok(css.includes('--content-width: 944px'), 'Desktop content density is missing.');
+assert.ok(css.includes('zoom: 1.25'), 'Desktop sidebar scale isolation is missing.');
 assert.ok(css.includes('@media (prefers-reduced-motion: reduce)'), 'Reduced-motion support is missing.');
 assert.ok(css.includes('min-height: 46px'), 'Touch target baseline is missing.');
 
