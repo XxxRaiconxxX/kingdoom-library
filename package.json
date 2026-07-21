@@ -1,0 +1,13 @@
+{
+  "name": "kingdoom-library",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node test-site.mjs",
+    "graphify:setup": "node scripts/graphify-manager.mjs setup",
+    "graphify:doctor": "node scripts/graphify-manager.mjs doctor",
+    "graphify:update": "node scripts/graphify-manager.mjs update",
+    "graphify:rebuild": "node scripts/graphify-manager.mjs rebuild",
+    "graphify:watch": "graphify watch ."
+  }
+}
