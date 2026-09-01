@@ -1,47 +1,94 @@
-# Kingdoom Library Agent Context
+# Kingdoom Agent Protocol — kingdoom-library (Codex CLI)
 
-Use this file as local guidance for Jules, Codex, Antigravity, and other AI coding agents working in this repository.
+Este documento es la guía técnica y protocolo de comportamiento para **Codex CLI**, Antigravity, Jules y cualquier agente de IA que opere en este repositorio.
 
-## Project Overview
+---
 
-Kingdoom Library is a static, standalone web application that hosts the lore, rules, beginner's guide, official races, templates, and downloads (like the Android APK) for the Kingdoom gaming roleplay ecosystem.
+## 0. Alcance de este repo
 
-## Repository Architecture
+Dominio biblioteca/lore: Aplicación web estática nativa (HTML/CSS/JS) para el lore, guías de inicio rápido, reglas oficiales de rol y distribución de APKs del ecosistema Kingdoom.
 
-- `index.html`: Contains all the semantic HTML content, meta tags, lore sections, tables, and markup.
-- `styles.css`: Full responsive stylesheet providing a premium book/codice aesthetic (dark theme, warm parchment accents, and animations).
-- `app.js`: Main frontend logic including search filter functionality, race filtering, reading progress tracker, and copy-paste character template helpers.
-- `package.json`: Project package configuration.
-- `test-site.mjs`: Script to validate the structural integrity of the project without heavy test suites.
+**REGLA DE CARRIL:** Trabajás exclusivamente en este repo. No tocás `Kingdoom-sync` ni `kingdoom-bot` sin pedido explícito.
 
-## Project Guardrails
+### Ecosistema Kingdoom:
+- `Kingdoom-sync` (en carpeta `Kingdoom`): Portal web SPA, panel admin y economía.
+- `kingdoom-bot`: Bot de WhatsApp y minijuegos.
+- `kingdoom-library`: Este repositorio (códice digital y biblioteca estática).
+- `kingdoom-graphify-ops`: Operaciones compartidas de Graphify y scripts.
 
-- **Ecosystem Repositories**:
-  - `Kingdoom-sync` (in `Kingdoom` folder): React frontend & panel.
-  - `kingdoom-bot`: WhatsApp bot logic.
-  - `kingdoom-library`: This repo.
-- **Pure Web Technologies**: Avoid adding framework dependencies like React, Vue, or build compilers unless explicitly asked. Keep it pure HTML, CSS, and JS.
-- **Aesthetic Consistency**: Ensure new features fit the book/codice visual language (warm colors, clean typography, responsive layout).
+---
 
-## graphify
+## 1. Arquitectura del Repositorio
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+Estructura de archivos del sitio web estático:
+- `index.html`: Contenido semántico HTML completo, metadatos, secciones de lore, tablas de razas, reglas de juego y marcado.
+- `styles.css`: Hoja de estilos responsiva con estética de libro/códice medieval (tema oscuro, acentos cálidos pergamino, tipografía legible y animaciones suaves).
+- `app.js`: Lógica frontend nativa que incluye buscador en tiempo real, filtro de razas/clases, seguimiento de progreso de lectura y helpers para copiar plantillas de fichas de personaje.
+- `package.json`: Configuración de scripts y comandos de verificación del proyecto.
+- `test-site.mjs`: Script de prueba para validar la integridad estructural del HTML, enlaces y recursos sin suites de testing pesadas.
+- `vercel.json`: Configuración de encabezados y enrutamiento para despliegue en Vercel.
 
-When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+---
 
-Local operational paths:
-- `graphify-out/` stays in the project root because Graphify, Codex, and Antigravity all look for `graphify-out/graph.json` there. It is local and ignored by Git.
-- `.codex/hooks.json` is local and ignored by Git. Refresh it with `npm run graphify:setup`.
+## 2. Reglas de Ingeniería y Guardrails
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when `graphify-out/graph.json` exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than `GRAPH_REPORT.md` or raw grep output.
-- For audits, debugging, architecture review, feature impact analysis, or handoff work, prefer Graphify before broad manual browsing.
-- For library search, indexing, page rendering, or UI/styles organization, prefer Graphify first.
-- If a change may affect connected modules, use Graphify to find neighbors and dependency clusters before editing.
-- Run `npm run graphify:setup` once per clone or when hooks and local Graphify wiring need repair.
-- Run `npm run graphify:update` after structural code changes that are still uncommitted, or before asking Graphify-heavy architecture questions during an active edit session.
-- Run `npm run graphify:doctor` when another AI agent reports stale graph answers, missing hooks, or missing local Graphify state.
-- Dirty `graphify-out/` files are expected after hooks or incremental updates; dirty graph files are not a reason to skip Graphify. Only skip Graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
-- If `graphify-out/wiki/index.md` exists, use it for broad navigation instead of raw source browsing.
-- Read `graphify-out/GRAPH_REPORT.md` only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, prefer `npm run graphify:update` over raw CLI calls so Codex hooks and repo conventions stay aligned.
+- **Tecnologías Web Puras:** Evitar agregar frameworks pesados (React, Vue) o transpiladores de build salvo pedido explícito. Mantener HTML5, CSS3 y JavaScript vanilla limpios y de alto rendimiento.
+- **Consistencia Estética:** Asegurar que las nuevas secciones respeten la identidad visual de códice/libro antiguo (paleta de colores cálida/oscura, espaciado armónico y diseño responsive).
+- **Dependencias:** No modificar ni commitear `package-lock.json` sin indicación previa.
+
+---
+
+## 3. Reglas del LoreKeeper (Narrativa y Contenido)
+
+- **Coherencia del Universo:** ⛔ **PROHIBIDO** romper la cuarta pared o introducir contradicciones con el canon oficial del Reino de las Sombras.
+- **Nuevos Elementos:** ⛔ **PROHIBIDO** introducir facciones, magias, razas o monedas nuevas sin documentarlas explícitamente para el resto del equipo.
+- **Formato WhatsApp:** Cuando el contenido o guías estén destinados a ser reutilizados en el bot, asegurar formato compatible (negritas `*texto*`, cursivas `_texto_` y emojis temáticos).
+- **Calidad Textual:** Redacción cuidada en español neutro, tono épico/medieval e impecable ortografía.
+
+---
+
+## 4. Protocolo de Sesión (Sin Rituales)
+
+No anunciar "contexto cargado". Cargar en silencio y ejecutar directo.
+
+---
+
+## 5. Protocolo de Honestidad en Subidas y Despliegues (Push & Deploy Honesty)
+
+Antes de reportar una subida a GitHub o deploy en Vercel como exitoso:
+1. Ejecutar el comando real (`git push`, etc.) en el terminal.
+2. Leer la salida completa del comando.
+3. Reportar éxito solo si la salida confirma código 0 sin errores.
+
+⛔ **PROHIBIDO** reportar éxito sin haberlo verificado en la terminal en la misma sesión.
+
+---
+
+## 6. Protocolo de Disciplina de Reportes (Report Discipline)
+
+Mismo formato cerrado de reporte que el resto del ecosistema (Tarea / Archivos / Cambios / Comandos / Riesgos / Estado) sin duplicar contenido anterior.
+
+---
+
+## 7. Anti-Pereza y Calidad
+
+- Cero placeholders/TODOs en HTML, CSS o JS entregado.
+- Validar visualmente cambios de contenido y layout responsive antes de dar por terminada la tarea.
+
+---
+
+## 8. Pasos de Validación y Testing Previos a Commit
+
+- Ejecutar `node test-site.mjs` para validar que no existan etiquetas rotas, selectores huérfanos o errores de script.
+- Verificar que la navegación responsive (menú móvil, tablas deslizables) funcione fluidamente.
+
+---
+
+## 9. Integración con Graphify
+
+Este proyecto cuenta con su grafo de conocimiento en `graphify-out/`.
+
+- Rutas operativas: `graphify-out/graph.json` y `.codex/hooks.json` (locales e ignorados por Git).
+- Reglas:
+  - Para consultas sobre secciones, razas o estilos, utilizar `graphify query "<pregunta>"`.
+  - Ejecutar `npm run graphify:update` tras modificaciones estructurales en HTML/CSS/JS.
