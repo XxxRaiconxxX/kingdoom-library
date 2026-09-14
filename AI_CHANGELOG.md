@@ -11,3 +11,7 @@ Este archivo sirve como registro de actividad y contexto operativo para el repos
     *   **[Ecosistema de Repositorios]:** Se integro `kingdoom-library` a la suite de repositorios gestionados por `kingdoom-graphify-ops`.
     *   **[Configuracion de Graphify]:** Se ejecuto `apply-kingdoom-suite.ps1` creando la estructura de carpetas de agentes (`.agents/`), guias, documentacion tecnica, scripts de manager y hooks de git automaticos en `.git/hooks/`.
     *   **[Inicializacion de package.json]:** Se creo un archivo `package.json` minimo para habilitar los comandos rapidos `npm run graphify:*` sin introducir dependencias externas.
+
+### [2026-09-14] Publicacion del compendio de razas
+- Se incorporo `kingdoom-lore/` con 110 manuscritos Markdown de razas y variantes numericas/D&D.
+- Se ajusto `test-site.mjs` para normalizar finales de linea CRLF antes de validar los marcadores HTML.

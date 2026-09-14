@@ -13,7 +13,7 @@ for (const file of requiredFiles) {
   assert.equal(fs.existsSync(new URL(file, import.meta.url)), true, `Missing ${file}`);
 }
 
-const html = fs.readFileSync(new URL('index.html', import.meta.url), 'utf8');
+const html = fs.readFileSync(new URL('index.html', import.meta.url), 'utf8').replace(/\r\n/g, '\n');
 const css = fs.readFileSync(new URL('styles.css', import.meta.url), 'utf8');
 const vercel = JSON.parse(fs.readFileSync(new URL('vercel.json', import.meta.url), 'utf8'));
 
