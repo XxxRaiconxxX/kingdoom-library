@@ -92,3 +92,25 @@ Este proyecto cuenta con su grafo de conocimiento en `graphify-out/`.
 - Reglas:
   - Para consultas sobre secciones, razas o estilos, utilizar `graphify query "<pregunta>"`.
   - Ejecutar `npm run graphify:update` tras modificaciones estructurales en HTML/CSS/JS.
+
+---
+
+## 10. Protocolo de Diagnóstico Forense y Validación de Integridad (Anti-Parches Superficiales)
+
+Este protocolo es de cumplimiento estricto para **Codex CLI**, Antigravity y cualquier agente ante tareas de auditoría, soporte de incidencias o corrección de bugs reportados:
+
+### A. Evidencia en Logs y Red Primero (Ground Truth First)
+- ⛔ **PROHIBIDO adivinar o asumir la causa de un fallo** basándose únicamente en lecturas superficiales.
+- Ante un error reportado por un usuario (descarga rota de APK, fallo de render, asset faltante o error en app.js), el agente **DEBE consultar los logs reales del sistema** (logs de red, consola o respuestas HTTP) en la marca de tiempo exacta del incidente.
+- Identificar el código de error exacto (404, CORS, syntax error, broken link) antes de modificar código.
+
+### B. Pruebas de Límites y Recursos Reales (Boundary Testing)
+- ⛔ **PROHIBIDO validar correcciones únicamente con "caminos felices" o pruebas triviales.**
+- Si un cambio involucra enlaces de descarga (APKs), versiones de assets o rutas dinámicas, probar obligatoriamente los enlaces completos con `curl` o fetch real para validar que el recurso existe y devuelve HTTP 200.
+- Si una prueba no verifica la disponibilidad del recurso real, la tarea **NO está resuelta**.
+
+### C. Prohibición de Declaración de Éxito Prematuro (Verification Gate)
+- Un bug no se considera resuelto porque "el archivo guardó sin errores".
+- La validación debe demostrar que el **caso exacto reportado por el usuario** ahora se completa satisfactoriamente.
+- Ejecutar `node test-site.mjs` y confirmar que no existan errores estructurales residuales.
+
